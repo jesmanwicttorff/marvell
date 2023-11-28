@@ -1,0 +1,36 @@
+{
+  "applications": "*",
+  "changelogDate": "20231123000955",
+  "clientRootFolder": "MarvellBack",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "marvell",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imagenurl",
+      "fieldType": "String"
+    }
+  ],
+  "microserviceName": "MarvellBack",
+  "name": "Marvell",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "distribuidor",
+      "otherEntityRelationshipName": "distribuidoid",
+      "relationshipName": "distribuidor",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

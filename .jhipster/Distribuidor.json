@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20231123001055",
+  "clientRootFolder": "MarvellBack",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "distribuidor",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sitioWeb",
+      "fieldType": "String"
+    }
+  ],
+  "microserviceName": "MarvellBack",
+  "name": "Distribuidor",
+  "pagination": "infinite-scroll",
+  "relationships": [
+    {
+      "otherEntityName": "marvell",
+      "relationshipName": "distribuidoid",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

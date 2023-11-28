@@ -34,6 +34,9 @@ public class CacheConfiguration {
     @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
+            createCache(cm, com.marvell.domain.Marvell.class.getName());
+            createCache(cm, com.marvell.domain.Marvell.class.getName() + ".distribuidors");
+            createCache(cm, com.marvell.domain.Distribuidor.class.getName());
             // jhipster-needle-caffeine-add-entry
         };
     }

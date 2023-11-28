@@ -28,6 +28,7 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
         http
+            .cors(Customizer.withDefaults())
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz ->
                 // prettier-ignore
@@ -35,7 +36,11 @@ public class SecurityConfiguration {
                     .requestMatchers(mvc.pattern(HttpMethod.POST, "/api/authenticate")).permitAll()
                     .requestMatchers(mvc.pattern(HttpMethod.GET, "/api/authenticate")).permitAll()
                     .requestMatchers(mvc.pattern("/api/admin/**")).hasAuthority(AuthoritiesConstants.ADMIN)
-                    .requestMatchers(mvc.pattern("/api/**")).authenticated()
+                    .requestMatchers(mvc.pattern(HttpMethod.PUT, "/api/**")).permitAll()
+                    .requestMatchers(mvc.pattern(HttpMethod.DELETE, "/api/**")).permitAll()
+                    .requestMatchers(mvc.pattern(HttpMethod.POST, "/api/")).permitAll()
+                    .requestMatchers(mvc.pattern(HttpMethod.GET, "/api/**")).permitAll()
+                    .requestMatchers(mvc.pattern("/api/**")).permitAll()
                     .requestMatchers(mvc.pattern("/v3/api-docs/**")).hasAuthority(AuthoritiesConstants.ADMIN)
                     .requestMatchers(mvc.pattern("/management/health")).permitAll()
                     .requestMatchers(mvc.pattern("/management/health/**")).permitAll()
