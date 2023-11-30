@@ -177,10 +177,11 @@ public class MarvellResource {
     }
 
     @GetMapping("marvell/word")
-    public ResponseEntity<String> getWordReport() {
+    public ResponseEntity<String> getWord() {
         log.debug("REST request to get a Word report");
         try {
-            String report = reportService.generateWordReport();
+            String report = reportService.WordReportMarvell();
+            System.out.println("Here word" + report);
             return ResponseEntity
                 .ok()
                 .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, "wordReportGenerated"))
@@ -203,10 +204,11 @@ public class MarvellResource {
     }
 
     @GetMapping("marvell/excel")
-    public ResponseEntity<String> getExcelReport() {
+    public ResponseEntity<String> getExcel() {
         log.debug("REST request to get an Excel report");
         try {
-            String report = reportService.generateExcelReport();
+            String report = reportService.ExcelReportMarvell();
+            System.out.println("Lego aqui " + report);
             return ResponseEntity
                 .ok()
                 .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, "excelReportGenerated"))

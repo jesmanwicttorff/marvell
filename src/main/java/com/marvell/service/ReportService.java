@@ -39,7 +39,8 @@ public class ReportService {
     public String expoReport(String reportFormat) throws FileNotFoundException, JRException {
         List<Marvell> marvell = marvellRepository.findAll();
         System.out.println("Marvell JEAW " + marvell);
-        String path = "C:\\Users\\Globalsym\\Desktop\\UniversoMarvell\\report";
+
+        String path = "C:\\Users\\Globalsym\\Desktop\\UniversoMarvell\\marvelFront\\report";
         // Cargo el archivo
         File file = ResourceUtils.getFile("classpath:reporte/UniversoMarvell.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(new FileInputStream(file));
@@ -59,9 +60,9 @@ public class ReportService {
         return "Report Generated in : " + path;
     }
 
-    public String generateExcelReport() throws Exception {
+    public String ExcelReportMarvell() throws Exception {
         List<Marvell> marvell = marvellRepository.findAll();
-        File file = ResourceUtils.getFile("classpath:reporte/UniversoMarvell.jrxml");
+        File file = ResourceUtils.getFile("classpath:reporte/marvell.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(new FileInputStream(file));
         Map<String, Object> parameters = new HashMap<>();
 
@@ -83,8 +84,8 @@ public class ReportService {
         }
     }
 
-    public String generateWordReport() throws Exception {
-        File file = ResourceUtils.getFile("classpath:reporte/UniversoMarvell.jrxml");
+    public String WordReportMarvell() throws Exception {
+        File file = ResourceUtils.getFile("classpath:reporte/marvell.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(new FileInputStream(file));
         Map<String, Object> parameters = new HashMap<>();
 

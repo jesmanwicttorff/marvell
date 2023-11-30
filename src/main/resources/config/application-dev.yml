@@ -51,10 +51,10 @@ spring:
         prepStmtCacheSize: 250
         prepStmtCacheSqlLimit: 2048
         useServerPrepStmts: true
-        data:
-          mongodb:
-            uri: mongodb://localhost:27017/ZapatosDB
-          # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/ZapatosDB
+    # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker

@@ -1,7 +1,9 @@
 package com.marvell.domain;
 
 import jakarta.persistence.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "zapatos")
 public class Zapatos {
 
     @Id
